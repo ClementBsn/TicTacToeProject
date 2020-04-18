@@ -3,6 +3,7 @@ from Board import Board
 from Players.HumanPlayer import HumanPlayer
 from Players.RandomPlayer import RandomPlayer
 from Players.MinMaxPlayer import MinMaxPlayer
+from Players.AlphaBetaPlayer import AlphaBetaPlayer
 
 from utils import *
 
@@ -56,11 +57,12 @@ def play_a_game(board):
 
         board.nb_turn += 1
         board.display_map()
+        a= input()
 
 def play_100_games(board):
     scores = {"P1":0, "P2":0,"Nul":0}
 
-    for i in range(100):
+    for k in range(100):
         if board.is_playing == 0:
             if random.random() < 0.5:
                 board.is_playing = 1
@@ -86,12 +88,16 @@ def play_100_games(board):
             else:
                 scores["Nul"] += 1
 
+        print("#######"+str(k))
+        board.display_map()
         board.restart()
+        print(scores)
+        print("\n\n")
 
     print(scores)
 
-p1 = MinMaxPlayer("Jack",1,6)
-p2 = MinMaxPlayer("John",1,1)
+p1 = AlphaBetaPlayer("Jack",1,6)
+p2 = MinMaxPlayer("John",1,6)
 B = Board(p1,p2)
 #play_a_game(B)
 play_100_games(B)

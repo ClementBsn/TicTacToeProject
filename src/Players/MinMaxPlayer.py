@@ -82,7 +82,7 @@ class MinMaxPlayer(Player):
         value += l_c_d.count(player) * 10 * c1
         value += l_c_d.count(int(player*-1)) * 10 * c2
 
-        """l_c_d = get_first_diag(map)
+        l_c_d = get_first_diag(map)
         if last_move in l_c_d:
             value -= 10
             value += l_c_d.count(player) * 10 * c1
@@ -92,6 +92,6 @@ class MinMaxPlayer(Player):
         if last_move in l_c_d:
             value -= 10
             value += l_c_d.count(player) * 10 * c1
-            value += l_c_d.count(int(player*-1)) * 10 * c2"""
+            value += l_c_d.count(int(player*-1)) * 10 * c2
 
         return value, is_winning_move
