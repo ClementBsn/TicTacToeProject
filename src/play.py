@@ -9,6 +9,9 @@ from utils import *
 
 import random
 
+#test
+
+
 def play_a_move(board):
     x,y = (-1,-1)
     if board.is_playing == 1:
